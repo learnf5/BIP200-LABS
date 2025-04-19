@@ -26,7 +26,7 @@ At the end of this lab you will be able to:
 
 ## Lab
 
-  ### Review current credit card number handling
+### Review current credit card number handling
 
 1. Log in to the Juice Shop application with the user credentials you just created: `student1@f5.com` / `password` (If you get a pop up with a security message about changing the password, click **OK**)
 
