@@ -20,22 +20,22 @@
 
 ## Lab Credentials and IP Address List
 
-External IP  | Internal IP   | Management IP  | Name          | Credentials / Comments
--------------|---------------|----------------|---------------|-----------------------------------
-10.10.0.0/16 | 172.16.0.0/16 | 192.168.0.0/16 |               | *Lab Network*
-10.10.0.254  |               | 192.168.0.254  |               | *Default Route*
-10.10.1.30   |               | 192.168.1.30   | jump          | **student / student**
-10.10.1.31   | 172.16.1.31   | 192.168.1.31   | bigip1        | **admin / F5trn001!**
-10.10.1.32   | 172.16.1.32   | 192.168.1.32   | bigip2        | **admin / F5trn001!**
-             |               | 192.168.1.51   | cm1           | **admin / F5trn001!**
-10.10.1.102  |               |                | juice-shop-vs | *Virtual Server*
-             | 172.16.20.160 |                | juice-shop    | *Backend Server*
+| External IP  | Internal IP   | Management IP  | Name          | Credentials / Comments |
+|--------------|---------------|----------------|---------------|------------------------|
+| 10.10.0.0/16 | 172.16.0.0/16 | 192.168.0.0/16 |               | *Lab Network*          |
+| 10.10.0.254  |               | 192.168.0.254  |               | *Default Route*        |
+| 10.10.1.30   |               | 192.168.1.30   | jump          | **student / student**  |
+| 10.10.1.31   | 172.16.1.31   | 192.168.1.31   | bigip1        | **admin / F5trn001!**  |
+| 10.10.1.32   | 172.16.1.32   | 192.168.1.32   | bigip2        | **admin / F5trn001!**  |
+|              |               | 192.168.1.51   | cm1           | **admin / F5trn001!**  |
+| 10.10.1.102  |               |                | juice-shop-vs | *Virtual Server*       |
+|              | 172.16.20.160 |                | juice-shop    | *Backend Server*       |
 
 ## Lab Topology
 
 !IMAGE[ht8ne4c7.jpg](instructions261554/ht8ne4c7.jpg)
 
-## Click-to-Paste Shortcuts
+## Click-to-Paste Shortcuts # Remove this section
 
 In the following lab steps, you will be instructed to create various files.  You can use the available click-to-paste shortcuts on the next pages to avoid creating these new files by hand.  In general, this is not recommended because it is beneficial to manually add these files.  You will become more familiar with the individual directives as well as the overall syntax.  Making mistakes in the lab will lead to troubleshooting that further increases understanding and familiarity.
 
