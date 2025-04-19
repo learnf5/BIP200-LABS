@@ -26,7 +26,7 @@ At the end of this lab you will be able to:
 
 ## Lab
 
-### A. Review current credit card number handling
+  ### Review current credit card number handling
 
 1. Log in to the Juice Shop application with the user credentials you just created: `student1@f5.com` / `password` (If you get a pop up with a security message about changing the password, click **OK**)
 
@@ -40,7 +40,7 @@ At the end of this lab you will be able to:
 
 1. What happens? All but the last four digits of the credit card number are masked by the application. This is because the application was written to mask digits in /saved-payment-methods. This is is a good security practice. However, data leakage usually occurs in places where the application developers did not think to secure.
 
-### B. Introduce a Data Leakage Problem
+  ### Introduce a Data Leakage Problem
 
 1. Click the side menu icon to the left of the Juice Shop logo.
 
@@ -52,7 +52,7 @@ At the end of this lab you will be able to:
 
 1. In your browser, go to `http://10.10.1.102/api/Feedbacks` and scroll to the bottom of the JSON text results. Note that the app is not masking credit card numbers in **/api/Feedbacks** because nobody ever thought that sensitive data could appear here. 
 
-### C. Enable Data Guard for credit card numbers
+  ### Enable Data Guard for credit card numbers
 
 1. In BIG-IP Next Central Manager, navigate to **SECURITY >> WAF > Policies**
 
@@ -74,7 +74,7 @@ At the end of this lab you will be able to:
 
 1. Select **Cancel** once more to return to the main **Policies** page.
 
-### D. Verify that Data Guard is masking credit card digits
+  ### Verify that Data Guard is masking credit card digits
 
 1. Reload http://10.10.1.102
 
@@ -82,11 +82,10 @@ At the end of this lab you will be able to:
 
 1. Go to `http://10.10.1.102/api/Feedbacks` and scroll to the bottom of the results. Credit card data should be masked. 
 
-### E. Review Event Logs
+  ### Review Event Logs
 
 1. In BIG-IP Next Central Manager, navigate to **SECURITY >> Event Logs**
 
 1. Select the event for **/api/Feedbacks** at the top of the list.
 
 1. Scroll to the **Triggered Violations** section and review the violation data related to Data Guard.
-
