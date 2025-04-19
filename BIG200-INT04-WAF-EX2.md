@@ -1,203 +1,65 @@
-# Exercise 2 - Creating an Alternate Trust Relationship
+# Exercise 2: Licensing BIG-IP Next VE Instance
+
+[Return to Lab Contents](#lab-contents)
 
 ## Requirements
 
-Before you begin you need to understand:
+Before you begin you need
 
-- How to use a simple Ansible command with the same local and remote username
+- A running BIG-IP Next Central Manager
+
+- A running BIG-IP Next VE Instance 
+
+- An F5 account for accessing trial licenses
+
+## Scenario
+
+In this lab, you will download a trial license for your BIG-IP Next VE instance and verify that you can pass traffic.
 
 ## Objectives
 
 At the end of this lab you will be able to:
 
-- How to use a simple Ansible command with different local and remote usernames
+- Download and activate JSON Web Token for licensing purposes
+
+## Read This Before You Begin
+
+**You may choose to skip this lab.**  You will still be able to complete the lab series and build the app in the final lab.  Even though the unlicensed BIG-IP will not pass traffic, the configuration experience is the same.
 
 ## Lab
 
-1. Ping a remote host with an alternate username
+1. Using Chrome on the jump box, navigate to `https://my.f5.com`
 
-    1. Edit the hosts file to include both the new username and new password for the remote user
+1. **Sign In**.  You should have created an account in the previous lab, if you didn't already have one.
 
-        **Note:** You must open a terminal window to perform the following tasks
+1. Click **Trials >**
 
-        **Note:** Click on the icon to type the command into the terminal window
-        
-        **Note:** You must press RETURN to run the command
+1. Scroll to the bottom of the page and in **My Trials**, click **BIG-IP Next**
 
-        **Note:** The ~/hosts file aleady exists; in order to click-to-paste the new value, you need to delete the original file first
+1. Click **Downloads and licenses** *or* **+ Instance (license)** to download a trial license.
 
-        `rm ~/hosts`
-        
-        `nano ~/hosts`
+1. On the resulting page click **Download JSON Web Token**
 
-        ```-linenums
-        ubuntu1a ansible_ssh_user=ansible ansible_ssh_pass=ansible
-        ```
+1. Open the downloaded file in a text editor.  You will need to copy and paste the token in just a moment.
 
-        **Note:** Don't forget to save the file in nano with a **CTRL-X** then **Y** then **RETURN**
+1. Using Chrome on jump, navigate to `https://cm1.f5trn.com`
 
-    1.	Rerun the Ansible ping command
+1. Log in using **admin** / **F5trn001!** credentials.
 
-        `ansible all --module-name=ping`
+1. On the main CM page, click **Manage Instances** 
 
-        ```-nocopy
-        ubuntu1a | SUCCESS => {
-            "changed": false, 
-            "ping": "pong" 
-        }
-        ```
+    !IMAGE[qb6krnx1.jpg](instructions261136/qb6krnx1.jpg)
 
-       @lab.Activity(Question10) 
+1. Select the checkbox to the left of the BIG-IP that you just added.
 
-        Note: In the ansible command above, you changed the target from ubuntu1a to all, which runs the command on every computer in the hosts file (but there is only one, so far)
+1. Click the **Actions** button and select **License** from the drop down menu.
 
-1. Run a different command
+1. Read the page and click **Next**
 
-    1. Until now, you have only used the ping module in the ansible command.   Try a new one here:
+1. Copy and paste the token into the **JSON Web Token** field.
 
-        `ansible all --module-name=command --args=date`
+1. Provide a name of this token, such as **trial-token** and then click **Activate**
 
-        ```-nocopy
-        ubuntu1a | SUCCESS | rc=0 >>
-        Sun Mar 18 21:50:40 EDT 2018
-        ```
+    !IMAGE[6s6f71zi.jpg](instructions261136/6s6f71zi.jpg)
 
-    1. Answer the following questions:
-
-        @lab.Activity(Question11)
-
-        @lab.Activity(Question12)
-
-1. Run a command that requires superuser privileges
-
-    1. Use ansible to run the apt update command as shown here:
-
-        `ansible all --module-name=apt --args="update-cache=true"`
-
-        ```-nocopy
-        ubuntu1a | FAILED! => {
-            "changed": false,  
-            "msg": "Failed to lock apt for exclusive operation" 
-        }
-        ```
-
-        @lab.Activity(Question13)
-
-        @lab.Activity(Question14)
-
-        @lab.Activity(Question15)
-
-    1. The **apt update** command needs to run as superuser (root). Change the username and password in the hosts file to root as shown here:
-
-        `rm ~/hosts`
-        
-        `nano ~/hosts`
-
-        ```-linenums
-        ubuntu1a ansible_ssh_user=root ansible_ssh_pass=root
-        ```
-
-    1. Rerun the Ansible command
-
-        `ansible all --module-name=apt --args="update-cache=true"`
-
-        ```-nocopy
-        ubuntu1a | UNREACHABLE! => {
-            "changed": false,  
-            "msg": "Authentication failure.",  
-            "unreachable": true 
-        }
-        ```
-
-    1.	Answer the following question:
-
-        @lab.Activity(Question16)
-
-    1. Test it for yourself by ssh’ing to ubuntu1a as root
-
-        `ssh root@ubuntu1a`
-
-        - Enter `root` as the password
-
-        ```-nocopy
-        root@ubuntu1a's password: root
-        Permission denied...Authentication failed
-        ```
-
-        @lab.Activity(Question17)
-
-        **Hint:** the ssh results give you the answer
-
-    1. You tried using Ansible to log in as user ansible and discovered you did not have sufficient privileges.  Next you tried logging in as root only to learn that didn’t work either because Ubuntu will not allow ssh to the superuser (root) account.  Try using Ansible to log in with a working, non-privileged account and escalate privileges with sudo.  Edit the hosts file as shown
-
-        **Remember:** With sudo, you use the user’s password, not the root password 
-
-        **Note:** This line has gotten very long and has wrapped around twice as shown below, but this is all one line in the file. If you insert it into the file as three lines, the command will fail
-
-        `rm ~/hosts`
-        
-        `nano ~/hosts`
-        
-        ```-linenums
-        ubuntu1a ansible_ssh_user=ansible ansible_ssh_pass=ansible ansible_become=true ansible_become_method=sudo ansible_sudo_pass=ansible
-        ```
-
-    1. In addition to the hostname, there are five directives on this line. This is what each of them does:
-
-        Directive                  | Role
-        ---------------------------|---------------------------------------------------------------------
-        ansible_ssh_user=ansible   | Ssh login username for remote device
-        ansible_ssh_pass=ansible   | Ssh login password for remote device
-        ansible_become=true        | After login, become superuser
-        ansible_become_method=sudo | After login, become superuser using the sudo command
-        ansible_sudo_pass=ansible  | Password to use at the sudo prompt (i.e., the user's login password)
-
-    1. Rerun the Ansible command to perform an apt update
-
-        `ansible all --module-name=apt --args="update-cache=true"`
-
-        ```-nocopy
-        ubuntu1a | SUCCESS => {
-            "cache_update_time": 1521425072,  
-            "cache_updated": true,  
-            "changed": true 
-        }
-        ```
-
-        @lab.Activity(Question18)
-
-        @lab.Activity(Question19)
-
-1. Use su instead of sudo
-
-    1. On some machines, sudo may not be available, or the user account may not have sudo access.  In this case, you will need to use the su method to escalate privilege mode, ie, become superuser.  Test the following example:
-
-        - Save the old hosts file to compare against the new one in the next step
-        
-        `mv ~/hosts ~/hosts.old`
-        
-        `nano ~/hosts`
-        
-        ```-linenums
-        ubuntu1a ansible_ssh_user=ansible ansible_ssh_pass=ansible ansible_become=true ansible_become_method=su ansible_su_pass=root
-        ```
-
-    1. Two of the directives changed this time.  What are the two directives that changed?  List the old and new hosts files to review the differences:
-
-        `cat ~/hosts.old ~/hosts`
-
-        @lab.Activity(Question20)
-
-        @lab.Activity(Question21)
-
-        **Note:** If you don’t change the second directive, the ansible command will fail with a Timeout waiting for privilege escalation prompt message
-
-    1. Rerun the Ansible command
-
-        `ansible ubuntu1a --module-name=apt --args="update-cache=true"`
-
-        @lab.Activity(Question22)
-
-        @lab.Activity(Question23)
-
-        @lab.Activity(Question24)
+1. Click **Exit**
