@@ -26,7 +26,7 @@ At the end of this lab you will be able to:
 
 ## Lab
 
-### A. Review brute force protection properties in the application security policy
+### Review brute force protection properties in the application security policy
 
 1. In BIG-IP Next Central Manager, navigate to **SECURITY >> WAF > Policies**
 
@@ -36,7 +36,7 @@ At the end of this lab you will be able to:
 
 1. Your next task is to specify a login page. Click the **Create** link below **Login Page**
 
-### B. Configure Login Page Properties
+   ### Configure Login Page Properties
 
 1. Click **Create** below the **Login Page** form.
 
@@ -66,7 +66,7 @@ At the end of this lab you will be able to:
 
 1. Click **Deploy** as needed.
 
-### C. Register as a new user in Juice Shop
+   ### Register as a new user in Juice Shop
 
 1. Browse to `http://10.10.1.102`
 
@@ -80,8 +80,7 @@ At the end of this lab you will be able to:
 
 1. Log in to the application (to prove that registration worked) and then log out.
 
-
-### D. Trigger a brute force violation
+   ### Trigger a brute force violation
 
 1. Try logging back in to the application using the **correct username** and **wrong password** six or seven times.
 
@@ -93,7 +92,7 @@ At the end of this lab you will be able to:
 
 1. Scroll to the bottom left of the dashboard and locate the **Violations/Sub-Violations (Top 20)** section. You should see **Maximum login attempts are exceeded** at the bottom of the list.
 
-In order to prevent brute force protection from interfering with later labs lets remove the entire feature from your policy.
+   In order to prevent brute force protection from interfering with later labs lets remove the entire feature from your policy.
 
 1. From the menu on the left, go to the **WAF** section and then click **Policies**
 
