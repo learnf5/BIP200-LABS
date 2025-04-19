@@ -1,4 +1,4 @@
-# Exercise 1: Managing BIG-IP Next VE Instance in Central Manager
+# Exercise: Managing BIG-IP Next VE Instance in Central Manager
 
 [Return to Lab Contents](#lab-contents)
 
