@@ -1,28 +1,39 @@
+@lab.Title
+
 ## Lab Contents
 
-- Lab 3: Creating a Trust Relationship
+- [Lab Overview](#lab-overview)
 
-- Lab 4: Creating an Alternate Trust Relationship
+- [Exercise: Managing BIG-IP Next VE Instance in Central Manager](#lab-1-managing-big-ip-next-ve-instance-in-central-manager)
+
+- [Exercise: Licensing BIG-IP Next VE Instance](#lab-2-licensing-big-ip-next-ve-instance)
+
+- [Exercise: Deploying Basic Application using Central Manager](#lab-3-deploying-basic-application-using-central-manager)
+
+- [Exercise: Deploying an Application Security Policy](#lab-4-deploying-an-application-security-policy)
+
+- [Exercise: Stopping Talking to Bots](#lab-5-stopping-talking-to-bots)
+
+- [Exercise: Securing a Login Page Against Brute Force Attacks](#lab-6-securing-a-login-page-against-brute-force-attacks)
+
+- [Exercise: Preventing Information Leakage Using Data Guard](#lab-7-preventing-information-leakage-using-data-guard)
 
 ## Lab Credentials and IP Address List
 
-External IP  | Internal IP   | Management IP | Hostname | Credentials / Comments
--------------|---------------|---------------|----------|-----------------------------------
-10.10.0.0/16 | 172.16.0.0/16 | 192.168.0.0   |          | *Lab Network*
-10.10.0.33   |               | 192.168.0.33  |          | *Default Route*
-10.10.1.1    |               |               | ubuntu1a | **student / student**
-10.10.1.2    |               |               | ubuntu1b | **student / student**
-10.10.1.29   |               | 192.168.0.29  | jump1    | **student / student**
-10.10.1.31   | 172.16.1.31   | 192.168.1.31  | bigip1a  | **admin\|root / f5trn001**
-10.10.1.32   | 172.16.1.32   | 192.168.1.32  | bigip1b  | **admin\|root / f5trn001**
-10.10.1.33   | 172.16.1.33   |               |          | *HA Self-IP*
-10.10.1.101  |               |               | app1     | *Virtual Server*
-10.10.1.101  |               |               | wiki1    | *Virtual Server*
-10.10.1.101  |               |               | www1     | *Virtual Server*
+External IP  | Internal IP   | Management IP  | Name          | Credentials / Comments
+-------------|---------------|----------------|---------------|-----------------------------------
+10.10.0.0/16 | 172.16.0.0/16 | 192.168.0.0/16 |               | *Lab Network*
+10.10.0.254  |               | 192.168.0.254  |               | *Default Route*
+10.10.1.30   |               | 192.168.1.30   | jump          | **student / student**
+10.10.1.31   | 172.16.1.31   | 192.168.1.31   | bigip1        | **admin / F5trn001!**
+10.10.1.32   | 172.16.1.32   | 192.168.1.32   | bigip2        | **admin / F5trn001!**
+             |               | 192.168.1.51   | cm1           | **admin / F5trn001!**
+10.10.1.102  |               |                | juice-shop-vs | *Virtual Server*
+             | 172.16.20.160 |                | juice-shop    | *Backend Server*
 
-## Lab Network Topology
+## Lab Topology
 
-!IMAGE[0u9e19nj.jpg](instructions247483/0u9e19nj.jpg)
+!IMAGE[ht8ne4c7.jpg](instructions261554/ht8ne4c7.jpg)
 
 ## Click-to-Paste Shortcuts
 
