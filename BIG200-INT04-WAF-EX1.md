@@ -1,272 +1,61 @@
-# Exercise 1 - Creating a Trust Relationship
+# Exercise 1: Managing BIG-IP Next VE Instance in Central Manager
+
+[Return to Lab Contents](#lab-contents)
 
 ## Requirements
 
-Before you begin you need:
+Before you begin you need
 
-- A basic understanding of the Ansible client-less architecture
+- A running BIG-IP Next Central Manager
+
+- A running BIG-IP Next VE Instance
 
 ## Scenario
 
-In this lab, you will learn how to build to Ansible trust relationships with a Linux server
+In this lab, you will add an instance of BIG-IP Next to your Central Manager in preparation for licensing. 
 
 ## Objectives
 
-At the end of this lab you will be able to:
+At the end of this lab you will be able to
 
-- Invoke Ansible to perform a basic task on a remote host
+- Verify that BIG-IP Next is running
 
-## Lab
+- Add an instance of BIG-IP Next to your Central Manager
 
-1. Test basic connectivity to a remote host
+## Lab 
 
-    Ansible is all about playbooks, but before you dive into them, look at the Ansible command line to better understand the Ansible environment
+1. Log into the **jump** box using the credentials **student** / **student**
 
-    1. The commands in the following steps must be entered in your home directory.  Type the following to change directory to your home directory and then confirm:
+1. Open a Terminal app and confirm BIG-IP is running
 
-        **Note:** You must open a terminal window to perform the following tasks
+    `curl --insecure --silent --user admin:F5trn001! https://bigip1.f5trn.com:5443/api/v1/health/ready | jq --monochrome-output .`
 
-        **Note:** Click on the icon to type the command into the terminal window
-        
-        **Note:** You must press RETURN to run the command
+    >[!Note] **Remember** BIG-IP Next VE takes a few minutes to fully spin up.  You may have to try this command several times before you see **"ready": true**
 
-        `cd`
+    >[!Note] **Note:** You will not be able to ssh into **bigip1** until the box has completed running cloud-init, which also takes a few minutes, but you can connect to the console, like you did in the previous lesson, and watch the individual containers start up
 
-        `pwd`
+1. Using Chrome, connect to CM at `https://cm1.f5trn.com`
 
-        - "pwd" should display "/home/student"
+1. Sign in using `admin` / `F5trn001!` credentials.
 
-    1. You must create an Ansible inventory file, which is a list of the machines you plan to configure or query. This file is typically named hosts, but should not be confused with the computer’s hosts file (/etc/hosts) which maps hostnames to IP addresses and is used when DNS is not available. So far, you only have one device to be work with, ubuntu1a:
+1. On the main CM page, click **Manage Instances** 
 
-        `nano ~/hosts`
+1. On the new page, click **Start Adding Instances**
 
-        ```-linenums
-        ubuntu1a
-        ```
+1. You have an instance that is already up and running.  Enter `192.168.1.31` for the IP address and click **Connect**
 
-        **Note:** Don't forget to save the file in nano with a **CTRL-X** then **Y** then **RETURN**
+1. Use the `admin` / `F5trn001!` credentials and click **Next**
 
-    1. In the following step, Ansible is trying ping ubuntu1a to determine if it can configure it. Ansible attempts to ssh to ubuntu1a, but ssh is unable to connect because it is uncertain about the authenticity of the remote host. If you type yes, the connection will proceed. In this case, we want the command to complete without any further user intervention. Type **no** when you get to the prompt.
+1. You are then instructed to *Provide a new username and password to manage this instance from BIG-IP Next Central Manager*.  It provides the suggested new username, **admin-cm**. You will reuse and then confirm the existing password `F5trn001!`
 
-        **Synopsis:** ping is a trivial test module, that always returns pong on successful contact. It may not make sense in most playbooks, but it is useful to verify the ability to log in and confirm that Python is properly configured.  
+1. Click **Add Instance** and then **Add** in the dialog window.
 
-        **Note:** This is not ICMP ping.
+1. You will be prompted to accept a new fingerprint. Accept it. 
 
-        - answer "no" when asked about conntinuing to connect
+    !IMAGE[o5g7e9pm.jpg](instructions259024/o5g7e9pm.jpg)
 
-        `ansible ubuntu1a --inventory-file=hosts --module-name=ping`
+    >[!Note] **Note:** This step may take several minutes.  Wait for it to complete, **do not** click the OK button.
 
-        ```-nocopy
-        The authenticity of host 'ubuntu1a (10.10.X.1)' can't be established.
-        ECDSA key fingerprint is SHA256:dNFbvKxxCkb0g+3OGBxpYvgyAq21SGtf6/QsbhFqAqw.
-        Are you sure you want to continue connecting (yes/no)? no
-        ubuntu1a | UNREACHABLE! => {
-            "changed": false, 
-            "msg": "Failed to connect to the host via ssh: Host key verification fa... 
-            "unreachable": true 
-        }
-        ```
+1. You now have a fully configured, CM-managed BIG-IP Next VE instance ready to be licensed.  Thanks to the **cloud-init** configuration, you won't have to configure the internal and external self IPs and VLANs, like you did in the previous lab.
 
-        Type the following ssh command to confirm the first part of the Ansible message is from ssh:
-        
-        `ssh ubuntu1a`
-
-        - answer "no" when asked about creating a fingerprint
-
-        ```-nocopy
-        The authenticity of host 'ubuntu1a (10.10.X.1)' can't be established.
-        ECDSA key fingerprint is SHA256:dNFbvKxxCkb0g+3OGBxpYvgyAq21SGtf6/QsbhFqAqw.
-        Are you sure you want to continue connecting (yes/no)?
-        ```
-
-        @lab.Activity(Question1)
-
-    1. If you instinctively typed yes at either of the ssh prompts above, ubuntu1a is now in the known hosts file and you will need to remove it as shown here: 
-
-        **Note:** Normally you would only delete the ubuntu1a entry within that file, but currently it is the only entry
-
-        `rm ~/.ssh/known_hosts`
-
-    1. To prevent the ssh warning, create an Ansible configuration file as shown here:
-
-        `nano ~/.ansible.cfg`
-        
-        ```-linenums
-        [defaults]
-        host_key_checking=false
-        ```
-
-        **Note:** Don't forget to save the file in nano with a **CTRL-X** then **Y** then **RETURN**
-
-        **Note:** Ansible allows you to override the default behavior of ansible commands using the following (in order of highest precedence):
-
-        - **ANSIBLE_CONFIG**: Environment variable overrides individual user sessions
-
-        - **ansible.cfg**: Overrides command launched from a specific directory
-
-        - **~/.ansible.cfg**: Overrides commands launched by a specific user
-
-        - **/etc/ansible/ansible.cfg**: Overrides any command launched on the host
-
-        **Note:** Use a dot as the first character of the filename so you will be able to perform all the labs of this chapter. If you leave off the dot, the configuration options will only apply to ansible command run from this directory and you will need a configuration file for every other directory you use 
-
-        **Note:** Starting a filename with a dot makes the file invisible to the base ls command. To see file names starting with a dot, use the command with a flag: `ls -a`
-
-    1.	Try to run the ansible ping command again
-
-        **Note:** Because of the above configuration, Ansible (using ssh) permanently added ubuntu1a to the list of known hosts. However, permission is still denied. Try ssh’ing as shown below and you will determine that ubuntu1a requires a password
-
-        `ansible ubuntu1a --inventory-file=hosts --module-name=ping`
-
-        ```-nocopy
-        ubuntu1a | UNREACHABLE! => {
-            "changed": false,  
-            "msg": "Failed to connect to the host via ssh: Warning: Permanently added 'ubuntu1a,10.10.X.1' (ECDSA) to the list of known hosts.\r\nPermission denied (publickey,password).\r\n",  
-            "unreachable": true 
-        }
-        ```
-
-        `ssh ubuntu1a`
-
-        - press CTRL-C at the password prompt
-
-        ```-nocopy
-        student@ubuntu1a's password:
-        ```
-
-    1.	Edit the hosts file to include the password for user student on ubuntu1a
-
-        **Note:** The ~/hosts file aleady exists; in order to click-to-paste the new value, you need to delete the original file first
-
-        `rm ~/hosts`
-        
-        `nano ~/hosts`
-
-        **Note:** Spaces matter in the hosts file. Do not put spaces around the equal sign here
-
-        ```-linenums
-        ubuntu1a ansible_ssh_pass=student
-        ```
-
-    1.	Try the ansible command for a third time and note that it succeeds, but with a warning:
-
-        `ansible ubuntu1a --inventory-file=hosts --module-name=ping`
-
-        **Note:** Starting with Ansible 2.9, any system using Python 2 will generate a deprecation warning. You can get rid of the warning by telling Ansible to use Python 3 in the hosts file
-
-        **Warning:** If you are using Ubuntu 18.04, you will receive the following warning:
-[DEPRECATION WARNING]: Distribution Ubuntu 18.04 on host ubuntu1a should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host.
-
-        See [https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html] (https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html) for more information. This feature will be removed in version 2.12. Deprecation warnings can be disabled by setting **deprecation_warnings=False** in ansible.cfg.
-
-    1.	If you did not receive a deprecation warning, you should have seen the following output:
-
-        ```-nocopy
-        ubuntu1a | SUCCESS => {
-            "ansible_facts": { 
-                "discovered_interpreter_python": "/usr/bin/python3" 
-            }, 
-            "changed": false, 
-            "ping": "pong" 
-        }
-        ```
-
-    1.	Edit the .ansible.cfg file to include a directive to tell Ansible to use Python 3. Do not put spaces around the equal sign here:
-
-        The **~/.ansible.cfg** file already exists -- delete it first if you are using the click-to-paste feature:
-
-        `rm ~/.ansible.cfg`
-        
-        `nano ~/.ansible.cfg`
-
-        ```-linenums
-        [defaults]
-        host_key_checking=false
-        interpreter_python=python3
-        ```
-
-    1. Try the ansible command again and note that it succeeds this time without a warning or additional text. The command returns a success status and two additional lines:
-
-        `ansible ubuntu1a --inventory-file=hosts --module-name=ping`
-
-        ```-nocopy
-        ubuntu1a | SUCCESS => {
-            "changed": false,  
-            "ping": "pong" 
-        }
-        ```
-
-    1.	Answer the following questions:
-
-        @lab.Activity(Question2)
-
-        @lab.Activity(Question3)
-
-        @lab.Activity(Question4)
-
-        @lab.Activity(Question5)
-
-        @lab.Activity(Question6)
-
-1. Make the Ansible command more convenient to use
-
-    1.	You can make the command a little shorter by avoiding the second argument if you add that information to the Ansible configuration file. Edit that information into the Ansible configuration you created earlier:
-
-        **Note:** Spaces around the equal sign are acceptable in this file
-
-        `rm ~/.ansible.cfg`
-        
-        `nano ~/.ansible.cfg`
-
-        ```-linenums
-        [defaults]
-        host_key_checking=false
-        interpreter_python=python3
-        inventory=hosts
-        ```
-
-    1. Try the command now, without the inventory-file flag
-
-        `ansible ubuntu1a --module-name=ping`
-
-        ```-nocopy
-        ubuntu1a | SUCCESS => {
-            "changed": false,  
-            "ping": "pong" 
-        }
-        ```
-
-    1. Finally, if you want this command to apply to all of the hosts in the inventory, replace the host name with the word all
-
-        **Note:** In your case there is only one host in that file, so the results will be the same
-
-        `ansible all --module-name=ping`
-
-        ```-nocopy
-        ubuntu1a | SUCCESS => {
-            "changed": false, 
-            "ping": "pong" 
-        }
-        ```
-
-        @lab.Activity(Question7)
-
-    1. Edit the hosts file to include the username for user student on ubuntu1a
-
-        **Note:** Spaces matter in the hosts file.  Do not put spaces around the equal sign here
-
-        `rm ~/hosts`
-        
-        `nano ~/hosts`
-
-        ```-linenums
-        ubuntu1a ansible_ssh_user=student ansible_ssh_pass=student
-        ```
-
-    1.	Run the Ansible ping command again
-
-        `ansible ubuntu1a --module-name=ping`
-
-        @lab.Activity(Question8)
-
-        @lab.Activity(Question9)
+    !IMAGE[emcav64w.jpg](instructions261136/emcav64w.jpg)
