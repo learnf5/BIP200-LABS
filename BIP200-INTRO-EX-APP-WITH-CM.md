@@ -1,4 +1,4 @@
-# Lab 3: Deploying Basic Application using Central Manager
+# Exercise: Deploying Basic Application using Central Manager
 
 [Return to Lab Contents](#lab-contents)
 
