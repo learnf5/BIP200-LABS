@@ -1,4 +1,4 @@
-# Exercise 2: Licensing BIG-IP Next VE Instance
+# Exercise: Licensing BIG-IP Next VE Instance
 
 [Return to Lab Contents](#lab-contents)
 
