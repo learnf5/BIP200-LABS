@@ -4,19 +4,19 @@
 
 - [Lab Overview](#lab-overview)
 
-- [Exercise: Managing BIG-IP Next VE Instance in Central Manager](#lab-1-managing-big-ip-next-ve-instance-in-central-manager)
+- [Exercise: Managing BIG-IP Next VE Instance in Central Manager](#exercise-managing-big-ip-next-ve-instance-in-central-manager)
 
-- [Exercise: Licensing BIG-IP Next VE Instance](#lab-2-licensing-big-ip-next-ve-instance)
+- [Exercise: Licensing BIG-IP Next VE Instance](#exercise-licensing-big-ip-next-ve-instance)
 
-- [Exercise: Deploying Basic Application using Central Manager](#lab-3-deploying-basic-application-using-central-manager)
+- [Exercise: Deploying Basic Application using Central Manager](#exercise-deploying-basic-application-using-central-manager)
 
-- [Exercise: Deploying an Application Security Policy](#lab-4-deploying-an-application-security-policy)
+- [Exercise: Deploying an Application Security Policy](#exercise-deploying-an-application-security-policy)
 
-- [Exercise: Stopping Talking to Bots](#lab-5-stopping-talking-to-bots)
+- [Exercise: Stopping Talking to Bots](#exercise-stopping-talking-to-bots)
 
-- [Exercise: Securing a Login Page Against Brute Force Attacks](#lab-6-securing-a-login-page-against-brute-force-attacks)
+- [Exercise: Securing a Login Page Against Brute Force Attacks](#exercise-securing-a-login-page-against-brute-force-attacks)
 
-- [Exercise: Preventing Information Leakage Using Data Guard](#lab-7-preventing-information-leakage-using-data-guard)
+- [Exercise: Preventing Information Leakage Using Data Guard](#exercise-preventing-information-leakage-using-data-guard)
 
 ## Lab Credentials and IP Address List
 
