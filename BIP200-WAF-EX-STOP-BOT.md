@@ -24,7 +24,7 @@ At the end of this lab you will be able to:
 
 ## Lab
 
-### A. Review bot mitigation options in the application security policy
+### Review bot mitigation options in the application security policy
 
 1. In BIG-IP Next Central Manager, navigate to **SECURITY >> WAF > Policies**
 
@@ -36,14 +36,14 @@ At the end of this lab you will be able to:
 
 1. Click **Cancel** at the bottom left to return to the Security page.
 
-### B. Send a request from a bot
+    ### Send a request from a bot
 
 1. Open a terminal window and run the following command from Apache Bench:
 `ab -k -c 1 -n 5 http://10.10.1.102/ `
 
     - The command sends 5 simultaneous connections, with Keep-Alive header, until 5 requests are met.
 
-### C. Review the WAF Dashboard
+    ### Review the WAF Dashboard
 
 1.  In BIG-IP Next Central Manager, navigate to **SECURITY >> Monitoring > WAF Dashboard**
 
