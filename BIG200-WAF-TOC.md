@@ -35,7 +35,7 @@
 
 !IMAGE[ht8ne4c7.jpg](instructions261554/ht8ne4c7.jpg)
 
-## Click-to-Paste Shortcuts # Remove this section
+## Click-to-Paste Shortcuts !!! Remove this section
 
 In the following lab steps, you will be instructed to create various files.  You can use the available click-to-paste shortcuts on the next pages to avoid creating these new files by hand.  In general, this is not recommended because it is beneficial to manually add these files.  You will become more familiar with the individual directives as well as the overall syntax.  Making mistakes in the lab will lead to troubleshooting that further increases understanding and familiarity.
 
