@@ -48,8 +48,6 @@ At the end of this lab you will be able to:
 
 1. Submit a comment that includes the credit card number `4111 1111 1111 1111` for example:
 
-*Not sure I entered my credit card number correctly - can you verify? 4111 1111 1111 1111*
-
 1. In your browser, go to `http://10.10.1.102/api/Feedbacks` and scroll to the bottom of the JSON text results. Note that the app is not masking credit card numbers in **/api/Feedbacks** because nobody ever thought that sensitive data could appear here. 
 
   ### Enable Data Guard for credit card numbers
