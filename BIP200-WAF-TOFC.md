@@ -35,6 +35,7 @@
 
 !IMAGE[ht8ne4c7.jpg](instructions261554/ht8ne4c7.jpg)
 
+<!--
 ## Click-to-Paste Shortcuts !!! Remove this section
 
 In the following lab steps, you will be instructed to create various files.  You can use the available click-to-paste shortcuts on the next pages to avoid creating these new files by hand.  In general, this is not recommended because it is beneficial to manually add these files.  You will become more familiar with the individual directives as well as the overall syntax.  Making mistakes in the lab will lead to troubleshooting that further increases understanding and familiarity.
@@ -42,3 +43,4 @@ In the following lab steps, you will be instructed to create various files.  You
 However, it is acknowledged that some students have poor typing skills and that spending time typing and retyping commands and directivies can be very frustrating.  For these students, shortcuts are available that bypass all the typing and perform the specific action described in the student lab guide.
 
 **TL;DR:** In the following lab steps, you will have the option to create files and run commands manually, or you can choose click-to-paste shortcuts.  Don't choose the shortcuts.
+-->
