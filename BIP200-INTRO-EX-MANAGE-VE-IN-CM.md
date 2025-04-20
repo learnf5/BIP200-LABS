@@ -51,11 +51,10 @@ At the end of this lab you will be able to
 1. Click **Add Instance** and then **Add** in the dialog window.
 
 1. You will be prompted to accept a new fingerprint. Accept it. 
-
-    !IMAGE[o5g7e9pm.jpg](instructions259024/o5g7e9pm.jpg)
+    !IMAGE[accept-fingerprint.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/accept-fingerprint.png)
 
     >[!Note] **Note:** This step may take several minutes.  Wait for it to complete, **do not** click the OK button.
 
 1. You now have a fully configured, CM-managed BIG-IP Next VE instance ready to be licensed.  Thanks to the **cloud-init** configuration, you won't have to configure the internal and external self IPs and VLANs, like you did in the previous lab.
 
-    !IMAGE[emcav64w.jpg](instructions261136/emcav64w.jpg)
+    !IMAGE[bigip1-healthy.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/bigip1-healty.png)
