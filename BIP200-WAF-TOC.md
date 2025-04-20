@@ -8,7 +8,7 @@
 
 - [Exercise: Deploying a Basic Application using Central Manager](#exercise-deploying-a-basic-application-using-central-manager)
 
-- [Exercise: Deploying an Application Security Policy](#exercise-deploying-an-application-security-policy)
+- [Exercise: Pushing out an Application Security Policy](#exercise-pushing-out-an-application-security-policy)
 
 - [Exercise: Stopping Talking to Bots](#exercise-stopping-talking-to-bots)
 
