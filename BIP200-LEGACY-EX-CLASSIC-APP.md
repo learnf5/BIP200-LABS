@@ -78,7 +78,7 @@ At the end of this lab you will be able to:
 
 1. You should see a page similar to
 
-    !IMAGE[jemllx0g.jpg](instructions261771/jemllx0g.jpg)
+    !IMAGE[nginx-front-page.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/nginx-front-page.png)
 
 1. You have successfully built a basic app on BIG-IP version 17.1
 
