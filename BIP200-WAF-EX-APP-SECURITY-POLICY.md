@@ -32,13 +32,13 @@ At the end of this lab you will be able to:
 
 ## Lab
 
- ### Exploit a SQL injection vulnerability
+### Exploit a SQL injection vulnerability
 
 1. In your current browser connection to the virtual server IP address at 10.10.1.102, load `http://10.10.1.102/rest/products/search?q=qwert')) UNION SELECT id, email, password, '4', '5', '6', '7', '8', '9' FROM Users--`
 
 1. Press **Enter** and then review the data returned by the injection. You can see user and password hash values near the top of the output.
 
- ### Create an application security policy
+    ### Create an application security policy
 
 1. Go back BIG-IP Next CM, click the Workspace menu (the 3x3 matrix of dots in the top left corner) and select **Applications**
 
@@ -72,7 +72,7 @@ At the end of this lab you will be able to:
 
 1. Click **Yes, Deploy**
 
- ### Verify and Review Protection Settings
+    ### Verify and Review Protection Settings
 
 1. In your browser, load `http://10.10.1.102/rest/products/search?q=qwert')) UNION SELECT id, email, password, '4', '5', '6', '7', '8', '9' FROM Users--`
 
@@ -86,7 +86,7 @@ At the end of this lab you will be able to:
 
 1. Click the **X** at the top right of the page to close the current window and return to the **Event Logs** page.
 
- ### Review Policy Protection Settings
+    ### Review Policy Protection Settings
 
 1. In BIG-IP Next Central Manager, navigate to **SECURITY >> WAF > Policies**
 
