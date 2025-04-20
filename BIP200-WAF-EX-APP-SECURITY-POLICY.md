@@ -1,4 +1,4 @@
-# Exercise: Pushing Out an Application Security Policy
+# Exercise: Deploying an Application Security Policy
 
 [Return to Lab Contents](#lab-contents)
 
