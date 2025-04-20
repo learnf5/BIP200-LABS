@@ -1,4 +1,4 @@
-# Exercise: Deploying Basic Application using Central Manager
+# Exercise: Deploying a Basic Application using Central Manager
 
 [Return to Lab Contents](#lab-contents)
 
