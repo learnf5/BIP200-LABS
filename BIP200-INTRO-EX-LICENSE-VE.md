@@ -48,7 +48,7 @@ At the end of this lab you will be able to:
 
 1. On the main CM page, click **Manage Instances** 
 
-    !IMAGE[qb6krnx1.jpg](instructions261136/qb6krnx1.jpg)
+    !IMAGE[bigip1-healthy-check.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/bigip1-healthy-check.png)
 
 1. Select the checkbox to the left of the BIG-IP that you just added.
 
@@ -60,6 +60,6 @@ At the end of this lab you will be able to:
 
 1. Provide a name of this token, such as **trial-token** and then click **Activate**
 
-    !IMAGE[6s6f71zi.jpg](instructions261136/6s6f71zi.jpg)
+    !IMAGE[bigip1-active.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/bigip1-active.png)
 
 1. Click **Exit**
