@@ -31,7 +31,7 @@
 
 ## Lab Topology
 
-!IMAGE[ht8ne4c7.jpg](instructions261554/ht8ne4c7.jpg)
+!IMAGE[lab-topology.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/lab-topology.png)
 
 <!--
 ## Click-to-Paste Shortcuts !!! Remove this section
