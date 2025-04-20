@@ -6,7 +6,7 @@
 
 - [Exercise: Licensing BIG-IP Next VE Instance](#exercise-licensing-big-ip-next-ve-instance)
 
-- [Exercise: Deploying Basic Application using Central Manager](#exercise-deploying-basic-application-using-central-manager)
+- [Exercise: Deploying a Basic Application using Central Manager](#exercise-deploying-a-basic-application-using-central-manager)
 
 - [Exercise: Deploying an Application Security Policy](#exercise-deploying-an-application-security-policy)
 
