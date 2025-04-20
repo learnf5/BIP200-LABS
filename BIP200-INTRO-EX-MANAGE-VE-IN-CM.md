@@ -57,4 +57,4 @@ At the end of this lab you will be able to
 
 1. You now have a fully configured, CM-managed BIG-IP Next VE instance ready to be licensed.  Thanks to the **cloud-init** configuration, you won't have to configure the internal and external self IPs and VLANs, like you did in the previous lab.
 
-    !IMAGE[bigip1-healthy.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/bigip1-healty.png)
+    !IMAGE[bigip1-healthy.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/bigip1-healthy.png)
