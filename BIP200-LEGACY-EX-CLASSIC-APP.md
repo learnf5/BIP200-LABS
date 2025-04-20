@@ -1,4 +1,4 @@
-# Lab 1: Creating and Testing Application on BIG-IP Version 17.1
+# Exercise: Creating and Testing Application on BIG-IP Version 17.1
 
 [Return to Lab Contents](#lab-contents)
 
