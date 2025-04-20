@@ -8,8 +8,6 @@
 
 - [Exercise: Licensing BIG-IP Next VE Instance](#exercise-licensing-big-ip-next-ve-instance)
 
-- [Exercise: Deploying a Basic Application using Central Manager](#exercise-deploying-a-basic-application-using-central-manager)
-
 - [Exercise: Migrating Application from Version 17.1 to BIG-IP Next](#exercise-migrating-application-from-version-171-to-big-ip-next)
 
 ## Lab Credentials and IP Address List
