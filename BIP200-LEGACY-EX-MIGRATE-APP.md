@@ -64,4 +64,4 @@ At the end of this lab you will be able to:
 
 1. Open a new tab on the Chrome browser and navigate to your new application running on BIG-IP Next, `http://10.10.1.103`
 
-    !IMAGE[5cgmm1p7.jpg](instructions261771/5cgmm1p7.jpg)
+    !IMAGE[nginx-front-page.png](https://raw.githubusercontent.com/learnf5/BIP200-LABS/main/images/nginx-front-page.png)
