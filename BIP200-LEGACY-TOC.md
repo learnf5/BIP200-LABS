@@ -2,6 +2,8 @@
 
 ## Lab Contents
 
+- [Exercise: Creating and Testing Application on BIG-IP Version 17.1](#exercise-creating-and-testing-application-on-big-ip-version-171)
+
 - [Exercise: Managing BIG-IP Next VE Instance in Central Manager](#exercise-managing-big-ip-next-ve-instance-in-central-manager)
 
 - [Exercise: Licensing BIG-IP Next VE Instance](#exercise-licensing-big-ip-next-ve-instance)
