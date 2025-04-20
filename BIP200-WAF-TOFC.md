@@ -2,8 +2,6 @@
 
 ## Lab Contents
 
-- [Lab Overview](#lab-overview)
-
 - [Exercise: Managing BIG-IP Next VE Instance in Central Manager](#exercise-managing-big-ip-next-ve-instance-in-central-manager)
 
 - [Exercise: Licensing BIG-IP Next VE Instance](#exercise-licensing-big-ip-next-ve-instance)
