@@ -1,8 +1,8 @@
 # Your Lab Guide is Here!
 
-## Lab Overview
-
 [Return to Lab Contents](#lab-contents)
+
+## Lab Overview
 
 In this lesson, like the previous lesson, you will use the prebuilt Central Manager and VE Instance that are *native* to the Skillable lab environment.
 
