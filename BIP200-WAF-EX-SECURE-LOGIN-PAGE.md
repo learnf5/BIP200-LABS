@@ -84,7 +84,7 @@ At the end of this lab you will be able to:
 
 1. Try logging back in to the application using the **correct username** and **wrong password** six or seven times.
 
-1. What happens? The login page should fail to load. Some single page applications, including Juice Shop, do not display the default blocking response page. Instead, you should see some garbled text such as ** Object/object**
+1. What happens? The login page should fail to load. Some single page applications, including Juice Shop, do not display the default blocking response page. Instead, you should see some garbled text such as **Object/object**
 
 1. Go back to your BIG-IP Next Central Manager and select **Cancel** to return to the **Policies** page.
 
